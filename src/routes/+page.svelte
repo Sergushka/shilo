@@ -1,2 +1,19 @@
-<h1 class="text-3xl font-bold underline">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Gallery from '../components/Gallery.svelte';
+	import Modal from '../components/Modal.svelte';
+
+	export let data;
+	/**
+	 * @type {boolean}
+	 */
+	let hideModal = true;
+	let src = '';
+
+	function showModal(e) {
+		hideModal = false;
+		src = e.target.src;
+	}
+</script>
+
+<Gallery urls={data.urls} on:click={showModal} />
+<Modal bind:hideModal {src} />
