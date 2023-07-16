@@ -7,11 +7,8 @@
 }
 
 .img {
-	@apply max-h-fit max-w-full rounded-lg transition ease-in-out duration-500 grayscale hover:filter-none cursor-pointer;
-}
-
-.modal {
-	@apply hidden fixed top-0 left-0 w-screen h-screen bg-black/70 flex justify-center items-center;
+	@apply w-full h-auto rounded-lg object-cover transition ease-in-out duration-500 grayscale hover:filter-none cursor-pointer;
+	aspect-ratio: 9 / 16;
 }
 
 .modal-img {
