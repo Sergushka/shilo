@@ -10,6 +10,10 @@
 	@apply w-auto h-[400px] rounded-lg object-cover transition ease-in-out duration-500 grayscale hover:filter-none cursor-pointer;
 }
 
+.modal {
+	@apply flex fixed top-0 left-0 w-screen h-screen bg-black/70 justify-center items-center;
+}
+
 .modal-img {
 	@apply max-w-full max-h-full p-4 m-4 object-cover;
 }

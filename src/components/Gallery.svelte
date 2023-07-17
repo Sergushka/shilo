@@ -5,9 +5,6 @@
 	 * @type {string[]}
 	 */
 	export let urls = [];
-	function smallUrl(url) {
-		return url.replace('WhatsApp', 'small_WhatsApp')
-	}
 
 	const offset = 5;
 	let index = 0;
@@ -20,6 +17,7 @@
 	 */
 	let observer;
 	$: limitedUrls = urls.slice(offset * 0, offset * (index + 1));
+
 	onMount(() => {
 		observer = new IntersectionObserver(
 			(entries) => {
@@ -33,12 +31,17 @@
 		);
 		observer.observe(imgEl);
 	});
+
 	$: {
 		if (imgEl) {
 			imgEl.onload = (e) => {
 				observer.observe(e.target);
 			};
 		}
+	}
+
+	function smallUrl(url) {
+		return url.replace('WhatsApp', 'small_WhatsApp');
 	}
 </script>
 
