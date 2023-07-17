@@ -1,5 +1,6 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
+	import { linear } from 'svelte/easing';
 
 	/**
 	 * @type {boolean}
@@ -14,10 +15,25 @@
 	function closeModal(e) {
 		hideModal = true;
 	}
+
+	function zoom(node, { delay, duration }) {
+		return {
+			delay,
+			duration,
+			css: (t) => {
+				const eased = linear(t);
+
+				return `
+				transform: scale(${eased});
+				opacity: ${t};
+				`;
+			}
+		};
+	}
 </script>
 
 {#if !hideModal}
-	<div out:fade class="modal" tabindex="-1" aria-hidden="true" on:click={closeModal}>
-		<img in:fly={{ y: 500, duration: 500 }} alt="Shilo big mode" {src} class="modal-img" />
+	<div class="modal" tabindex="-1" aria-hidden="true" on:click={closeModal}>
+		<img transition:zoom={{ delay: 200, duration: 400 }} alt="Shilo big mode" {src} class="modal-img" />
 	</div>
 {/if}
