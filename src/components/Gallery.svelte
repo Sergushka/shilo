@@ -5,8 +5,11 @@
 	 * @type {string[]}
 	 */
 	export let urls = [];
+	function smallUrl(url) {
+		return url.replace('WhatsApp', 'small_WhatsApp')
+	}
 
-	const offset = 3;
+	const offset = 5;
 	let index = 0;
 	/**
 	 * @type {HTMLImageElement}
@@ -26,7 +29,7 @@
 					index += 1;
 				}
 			},
-			{ threshold: 0.8 }
+			{ threshold: 0.5 }
 		);
 		observer.observe(imgEl);
 	});
@@ -40,9 +43,9 @@
 </script>
 
 <div class="gallery">
-	{#each limitedUrls as url, i}
+	{#each limitedUrls as url}
 		<div class="container">
-			<img bind:this={imgEl} class="img" src={url} on:click alt="SHILO" />
+			<img bind:this={imgEl} class="img" src={smallUrl(url)} on:click alt="SHILO" />
 		</div>
 	{/each}
 </div>

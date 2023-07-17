@@ -3,12 +3,11 @@
 @tailwind utilities;
 
 .gallery {
-	@apply grid grid-cols-2 md:grid-cols-3 gap-4 px-5 py-2 md:px-10 md:py-4 scroll-smooth;
+	@apply grid grid-cols-2 md:grid-cols-3 gap-2 px-5 py-2 md:px-10 md:py-4 scroll-smooth;
 }
 
 .img {
-	@apply w-full h-auto rounded-lg object-cover transition ease-in-out duration-500 grayscale hover:filter-none cursor-pointer;
-	aspect-ratio: 9 / 16;
+	@apply w-auto h-[400px] rounded-lg object-cover transition ease-in-out duration-500 grayscale hover:filter-none cursor-pointer;
 }
 
 .modal-img {

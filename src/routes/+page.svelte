@@ -11,7 +11,8 @@
 
 	function showModal(e) {
 		hideModal = false;
-		src = e.target.src;
+		const imgSrc = e.target.src;
+		src = imgSrc.replace('small_', '');
 	}
 </script>
 
